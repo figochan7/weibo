@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+/* CSS Document */
+
+/* 全局设置 */
+*{
+	margin: 0px;
+}
+body{
+	font-size:12px;
+	font-family:"微软雅黑";
+	margin:0px;
+	padding:0px;
+	background-image:url(../images/bg.gif);
+	background-color:#C1E6F5;
+	background-repeat:repeat-x;
+}
+
+a:link{
+	text-decoration:none;
+	color:#39F;
+}
+
+a:visited{
+	text-decoration:none;
+	color:#39F;
+}
+a:hover{
+	text-decoration:none;
+	color:#36C;
+}
+#page{
+	margin: 0 auto;
+	position: relative;
+	width:1000px;
+}
+#head{
+	width:100%;
+	margin-bottom: 0px;
+}
+
+#foot{
+	width:100%;
+	height: 150px;
+}
+.head-item{
+	margin-left:40px;
+	margin-right: 40px;
+	font-size: 16px;
+	color: black;
+}

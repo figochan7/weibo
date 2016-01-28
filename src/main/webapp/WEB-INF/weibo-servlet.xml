@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/tool
+        http://www.springframework.org/schema/tool/spring-tool-3.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+        ">
+	<mvc:annotation-driven />
+	
+	<mvc:resources location="resources/*" mapping="resources/**"/>
+	 <context:component-scan base-package="me" />
+	  
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+        <property name="prefix" value="/" />  
+        <property name="suffix" value=".jsp" />  
+    </bean>
+    <bean id="multipartResolver"  
+            class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+            <!-- set the max upload size 1 GB -->  
+            <property name="maxUploadSize">  
+                <value>1073741824</value>  
+            </property>  
+            <property name="maxInMemorySize">  
+                <value>104857600</value>  
+            </property>  
+        </bean>  
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+			<property name="mediaTypes">
+				<map>
+					<entry key="json" value="application/json"></entry>
+					<entry key="xml" value="text/xml"></entry>
+					<entry key="htm" value="text/html"></entry>
+				</map>
+			</property>
+			<property name="defaultContentType" value="text/html"></property>
+		</bean> 
+		<bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+            <property name="driver" value="com.mysql.jdbc.Driver"/>
+            <property name="driverUrl" value="jdbc:mysql://localhost:3306/weibo?characterEncoding=utf8"/>
+            <property name="user" value="root"/>
+            <property name="password" value=""/>
+            <!-- 最少保持的空闲连接数 （默认2个） -->
+             <property name="prototypeCount" value="2"/>
+            <!-- 最小连接数 （默认2个） -->
+            <property name="minimumConnectionCount" value="2"/>
+            <!-- 最大连接数 （默认5个） -->
+            <property name="maximumConnectionCount" value="5"/>
+            <!--同时最大连接数-->
+            <property name="simultaneousBuildThrottle" value="4"/>
+    	 </bean> 
+		<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+			<property name="dataSource" ref="dataSource"/>
+			<property name="packagesToScan" value="me.figochan.entities"/> 
+			<property name="hibernateProperties">
+				<props>
+					<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				     <!--<prop key="hibernate.hbm2ddl.auto">update</prop>
+				   <prop key="hibernate.show_sql">true</prop>
+					<prop key="hibernate.format_sql">true</prop> -->
+				</props>
+			</property> 
+		</bean>
+		
+		<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>      
+
+
+
+  

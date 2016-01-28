@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+/* CSS Document */
+.login-panel{
+	margin-bottom: 5px;
+}
+
+.pwd-div{
+	height:300px;
+	width:350px;
+	margin-top: 50px;
+	border-left: 1px solid #ccc;
+	padding-top: 50px;
+}
+.login-div{
+	width: 400px;
+	margin-top: 50px;
+	margin-left: 100px;
+	
+}

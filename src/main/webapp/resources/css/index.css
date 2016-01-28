@@ -1,0 +1,98 @@
+@CHARSET "UTF-8";
+/* CSS Document */
+.index{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+.group{
+	margin: 0;
+	margin-top:5px;
+	padding: 0;
+	width: 100%;
+	margin-bottom: 5px;
+}
+.left-ul{
+	width: 100%;
+}
+
+.public{
+	width:100%;
+	
+}
+.content{
+	color:black;
+}
+#publish{
+	margin-top: 5px;
+
+}
+#info{
+	margin-top: 0px;
+	width: 100%;
+	color: black;
+}
+.user-avatar{
+	width:80px;
+	height: 80px;	
+}
+.insert-btn{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#fileupload{
+	display:inline;
+	margin-top: 5px;
+}
+.hot-weibo{
+	width:200px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.operate{
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	padding-top: 5px;
+}
+.weibo-con-div{
+	padding: 10px;
+	padding-left: 30px;
+	font-size: 15px;
+}
+.comment-div{
+	padding-left: 30px;
+	padding-right: 20px;
+	padding-top: 5px;
+}
+.img-row{
+	margin-left: 30px;
+	margin-right: 40px;
+	border: 2px solid #999;
+	padding:10px;
+	background-color: #135C9C;
+}
+.weibo-img{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.o-left{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.o-item{
+	border-left: 1px solid #aaa;
+	border-right: 1px solid #aaa;
+}
+.o-index-bg{
+	margin-left:3px;
+	margin-right:3px;
+	margin-bottom:10px;
+	height:301px;
+	background-image: url(../images/index-bg.jpg);
+	background-repeat: no-repeat;
+	border:2px solid #ccc;
+	 -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px; 
+    border-radius:10px;         
+}
